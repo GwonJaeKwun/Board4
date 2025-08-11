@@ -16,24 +16,57 @@ import com.board.menus.mapper.MenuMapper;
 public class BoardController {
 	
 	@Autowired
-	private MenuMapper menuMapper;
+	private MenuMapper  menuMapper;
 	
 	@Autowired
 	private BoardMapper boardMapper;
-
+	
+	// http://localhost:9090/Board/List?menu_id=MENU01
 	@RequestMapping("/Board/List")
-	public ModelAndView list(MenuDTO menuDTO) {
-		//메뉴 리스트
-		List<MenuDTO> menuList = menuMapper.getMenuList();
+	public ModelAndView list( MenuDTO menuDTO ) {
+		// 메뉴 리스트
+		List<MenuDTO>  menuList  =  menuMapper.getMenuList();
 		
-		//게시물 목록처리
-		List<BoardDTO> boardList = boardMapper.getBoardList(menuDTO);
+		// 게시물 목록처리
+		List<BoardDTO> boardList =  boardMapper.getBoardList( menuDTO ); 
+	
+		menuDTO                  =  menuMapper.getMenu( menuDTO );
 		
-	    ModelAndView mv = new ModelAndView();
-	    mv.addObject("menuList", menuList);
-	    mv.addObject("boardList", boardList);
-		mv.setViewName("board/list" );
-	    return mv;
+		ModelAndView  mv  = new ModelAndView();
+		mv.addObject("menuList",  menuList);		
+		//mv.addObject("menu_id",   menu_id );		
+		mv.addObject("menuDTO",   menuDTO );		
+		mv.addObject("boardList", boardList );
+		mv.setViewName( "board/list" );
+		return  mv;
 	}
 	
+	// http://localhost:9090/Board/WriteForm?menu_id=MENU01
+	@RequestMapping("/Board/WriteForm")
+	public  ModelAndView  writeForm( MenuDTO  menuDTO  ) {
+		
+		// 메뉴 목록을 조회
+		List<MenuDTO>  menuList = menuMapper.getMenuList();
+		
+		menuDTO                 = menuMapper.getMenu( menuDTO );
+		
+		ModelAndView  mv  =  new ModelAndView();
+		mv.addObject("menuList", menuList );
+		mv.addObject("menuDTO",  menuDTO);
+		mv.setViewName( "board/write" );
+		return        mv;
+		
+	}
+	
+	@RequestMapping("/Board/Write")
+	public  ModelAndView  write( BoardDTO boardDTO ) {
+		ModelAndView  mv   = new ModelAndView();
+		mv.setViewName("redirect:/Board/List");
+		return  mv;
+	}
+	 
 }
+
+
+
+

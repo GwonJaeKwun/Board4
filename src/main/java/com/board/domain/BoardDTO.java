@@ -1,16 +1,16 @@
 package com.board.domain;
 
 public class BoardDTO {
-	//Fields
-	private int idx;
-	private String menu_id;
-	private String title;
-	private String content;
-	private String writer;
-	private String regdate;
+	// Fields
+	private int     idx;
+	private String  menu_id;
+	private String  title;
+	private String  content;
+	private String  writer;
+	private String  regdate;
 	private int     hit;
 	
-	//Getter&Setter
+	// Getter / Setter
 	public int getIdx() {
 		return idx;
 	}
@@ -54,8 +54,8 @@ public class BoardDTO {
 		this.hit = hit;
 	}
 	
-	//Constructor
-	public BoardDTO () {}
+	// Constructor
+	public BoardDTO() {}
 	public BoardDTO(int idx, String menu_id, String title, String content, String writer, String regdate, int hit) {
 		this.idx = idx;
 		this.menu_id = menu_id;
@@ -66,12 +66,10 @@ public class BoardDTO {
 		this.hit = hit;
 	}
 	
-	//toString
+	// toString
 	@Override
 	public String toString() {
 		return "BoardDTO [idx=" + idx + ", menu_id=" + menu_id + ", title=" + title + ", content=" + content
 				+ ", writer=" + writer + ", regdate=" + regdate + ", hit=" + hit + "]";
-	}
-	
-	
+	}	
 }

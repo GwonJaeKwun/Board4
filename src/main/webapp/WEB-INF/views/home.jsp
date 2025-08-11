@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사용자 목록 추가</title>
 
 <link rel="icon" type="image/ico" href="/img/favicon.ico" />
 <link rel="stylesheet"  href="/css/common.css" /> 
@@ -23,7 +23,7 @@
    <a href="/Users/WriteForm">새 사용자 추가</a><br />
    <hr>
    <a href="/Board/List?menu_id=MENU01">게시물 목록</a><br />
-   <a href="/BOard/WriteForm?menu_id=MENU01">새 게시물 추가!</a><br />
+   <a href="/Board/WriteForm?menu_id=MENU01">새 게시물 추가</a><br />
   </main>
    
 </body>

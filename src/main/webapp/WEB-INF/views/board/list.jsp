@@ -29,33 +29,28 @@
    
    td[colspan] {
        text-align : right; 
-   }  	   
+   }  	 
    
-   #menu a{color:white;
-           font-weight: bold;}	
+   #menu a { 
+      color:white; 
+      font-weight: bold;      
+   }  
+   
    
 </style> 
 
 </head>
 <body>
-  <main>
+  <main>	
+
+    <!-- 메뉴 리스트 -->
+    <%@include file="/WEB-INF/include/menus.jsp" %>
 	
-	<!-- 메뉴목록 -->
-	<table id="menu">
-	  <tr>
-	   <c:forEach var="menu" items="${ menuList }">
-	   <td>
-	    <a href="/Board/List?menu_id=${menu.menu_id }">
-	      ${ menu.menu_name }
-	    </a>
-	   </td>
-	   </c:forEach>
-	  </tr>
-	</table>
+	<%-- <h2>${ menu_id }게시물 목록</h2> --%>
+	<h2>${ menuDTO.menu_name } 게시물 목록</h2> 
+	<%-- <h2>${ param.menu_id }게시물 목록</h2 --%>>
 	
-	<h2>${ menu_id }게시물 목록</h2>	
-    <!--  게시물 목록 -->	
-	
+	<!--  게시물 목록 -->
 	<table>
 	  <tr>
 	    <td>번호</td>	 
@@ -73,11 +68,15 @@
 	
 	  <c:forEach  var="board" items = "${ boardList }" >
 	  <tr>
-	    <td>${ board.idx   }</td>
-	    <td>${ board.title  }</td>
-	    <td>${ board.writer     }</td>	   
+	    <td>${ board.idx      }</td>
+	    <td>
+	      <a href="/Board/View?idx=${ board.idx }">
+	    	${ board.title    }
+	      </a>	
+	    </td>
+	    <td>${ board.writer   }</td>	   
 	    <td>${ board.regdate  }</td>	   
-	    <td>${ board.hit    }</td>	   
+	    <td>${ board.hit      }</td>	   
 	  </tr>
 	  </c:forEach>
 	  

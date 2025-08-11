@@ -5,18 +5,21 @@
   <select id="getBoardList"  
           resultType = "com.board.domain.BoardDTO" >
   
-     SELECT  IDX
-           , MENU_ID
-           , TITLE
-           , WRITER
-           , TO_CHAR(REGDATE, 'YYYY-MM-DD') REGDATE
-           , HIT
-     FROM    BOARD
-     
-     WHERE MENU_ID = #{menu_id}
-     
-     ORDER BY IDX DESC
+     SELECT       IDX
+			    , MENU_ID
+				, TITLE
+				, WRITER
+                , TO_CHAR( REGDATE, 'YYYY-MM-DD') REGDATE 
+                , HIT
+      FROM       BOARD
+      
+       WHERE     MENU_ID  = #{ menu_id }         
+      
+      ORDER  BY  IDX DESC
   
   </select>
-
+   
+  
+  
+  
 </mapper>

@@ -1,5 +1,5 @@
-CMD >  sqlplus /nolog
- SQL conn /as sysdba
+CMD> sqlplus /nolog
+ SQL>conn /as sysdba
  
  ALTER SESSION SET "_ORACLE_SCRIPT"=true;
  CREATE USER SPRING IDENTIFIED BY 1234;
@@ -7,20 +7,6 @@ CMD >  sqlplus /nolog
  ALTER USER SPRING DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
 
 ----------------------------------
-
-CREATE  TABLE MENUS (
-    MENU_ID     VARCHAR2(6)   PRIMARY KEY   -- 매뉴아이디
-  , MENU_NAME   VARCHAR2(30)     -- 메뉴이름
-  , MENU_SEQ    NUMBER(6)        -- 순번
-)
-
-INSERT  INTO   MENUS  VALUES ( 'MENU01', 'HTML',       1);
-INSERT  INTO   MENUS  VALUES ( 'MENU02', 'CSS',         2);
-INSERT  INTO   MENUS  VALUES ( 'MENU03', 'JAVASCRIPT',  3);
-COMMIT
-
-SELECT * FROM MENUS;
-
 -- 메뉴 목록
 CREATE  TABLE   MENUS (
      MENU_ID     VARCHAR2(6)   PRIMARY KEY

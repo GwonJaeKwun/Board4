@@ -10,5 +10,11 @@ import com.board.menus.domain.MenuDTO;
 @Mapper
 public interface BoardMapper {
 
-	   List<BoardDTO> getBoardList(MenuDTO menuDTO);
+	List<BoardDTO> getBoardList( MenuDTO menuDTO );
+
 }
+
+
+
+
+
