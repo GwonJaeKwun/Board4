@@ -60,8 +60,13 @@ public class BoardController {
 	
 	@RequestMapping("/Board/Write")
 	public  ModelAndView  write( BoardDTO boardDTO ) {
+		
+		boardMapper.insertBoard(boardDTO);
+		
+		String menu_id=boardDTO.getMenu_id();
+		
 		ModelAndView  mv   = new ModelAndView();
-		mv.setViewName("redirect:/Board/List");
+		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
 		return  mv;
 	}
 	 

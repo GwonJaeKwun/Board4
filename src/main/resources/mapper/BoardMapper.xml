@@ -19,7 +19,33 @@
   
   </select>
    
+  <insert id="insertBoard">
   
+  	INSERT INTO BOARD (
+	    IDX,
+	    MENU_ID,
+	    TITLE,
+	    CONTENT,
+	    WRITER,
+	    REGDATE,
+	    HIT
+	) VALUES ( 
+  		( SELECT NVL(MAX(IDX),0)+1 FROM BOARD ) ,
+        #{ menu_id  },
+        #{ title    },
+        #{ content  },
+        #{ writer   },
+        SYSDATE,
+        0 
+    ) 
+  </insert>
+  
+    <delete  id="deleteUser">
+  
+    DELETE   FROM    BOARD
+     WHERE   MENU_ID  =  #{menu_id} 
+  
+  </delete>
   
   
 </mapper>

@@ -58,11 +58,13 @@
 	    <td>작성자</td>
 	    <td>날짜</td>
 	    <td>조회수</td>
+	    <td>수정</td>
+	    <td>삭제</td>
 	  </tr>
 	  
 	  <tr>
-	    <td colspan="5">
-	      <a href="/Board/WriteForm">새 게시물 추가</a>	 
+	    <td colspan="7">
+	      <a href="/Board/WriteForm?menu_id=${menuDTO.menu_id }">새 게시물 추가</a>	 
 	    </td>
 	  </tr>
 	
@@ -76,7 +78,9 @@
 	    </td>
 	    <td>${ board.writer   }</td>	   
 	    <td>${ board.regdate  }</td>	   
-	    <td>${ board.hit      }</td>	   
+	    <td>${ board.hit      }</td>
+	    <td><a href="/Board/Delete?menu_id=${menu.menu_id}">삭제</a></td>
+	    <td><a href="/Board/UpdateForm?menu_id=${menu.menu_id}">수정</a></td>	   
 	  </tr>
 	  </c:forEach>
 	  

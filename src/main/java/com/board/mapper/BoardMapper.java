@@ -12,6 +12,8 @@ public interface BoardMapper {
 
 	List<BoardDTO> getBoardList( MenuDTO menuDTO );
 
+	void insertBoard(BoardDTO boardDTO);
+
 }
 
 
