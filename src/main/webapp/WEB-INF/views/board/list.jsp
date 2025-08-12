@@ -14,27 +14,34 @@
  -->
 
 <style>
-   td {text-align: center;}
-   
-   tr:first-child {
-   	   background-color : black;
-   	   font-weight : bold;  
-   	   /* SCSS 문법 (sass 문법중에 하나)
-   	   : 별도 라이브러리 필요*/
-   	   td {
-       	   border-color:white;
-   	   	   color : white;
-       }      
-   }
-   
-   td[colspan] {
-       text-align : right; 
-   }  	 
-   
-   #menu a { 
-      color:white; 
-      font-weight: bold;      
-   }  
+
+  #table {
+	td {
+		padding: 10px;
+		text-align: center; 
+	}  
+	
+	td:nth-of-type(1) { width : 100px;  }
+	td:nth-of-type(2) { width : 400px; text-align:left; }
+	td:nth-of-type(3) { width : 100px;  }
+	td:nth-of-type(4) { width : 100px;  }
+	td:nth-of-type(5) { width : 100px;  }
+	
+	tr:first-child {
+		background: #333;
+		color: white;
+		font-weight: 700;   /* 700 : bold */ 
+		td {
+		   border-color:silver;
+		}
+		& > td:nth-of-type(2) { text-align: center;  }
+	}
+	
+	tr:nth-of-type(2) td {
+		text-align: right;		
+	}
+  
+  }
    
    
 </style> 
@@ -48,23 +55,21 @@
 	
 	<%-- <h2>${ menu_id }게시물 목록</h2> --%>
 	<h2>${ menuDTO.menu_name } 게시물 목록</h2> 
-	<%-- <h2>${ param.menu_id }게시물 목록</h2 --%>>
+	<%-- <h2>${ param.menu_id }게시물 목록</h2 --%>
 	
 	<!--  게시물 목록 -->
-	<table>
+	<table id="table">
 	  <tr>
 	    <td>번호</td>	 
 	    <td>제목</td>
 	    <td>작성자</td>
 	    <td>날짜</td>
 	    <td>조회수</td>
-	    <td>수정</td>
-	    <td>삭제</td>
 	  </tr>
 	  
 	  <tr>
-	    <td colspan="7">
-	      <a href="/Board/WriteForm?menu_id=${menuDTO.menu_id }">새 게시물 추가</a>	 
+	    <td colspan="5">
+	      <a href="/Board/WriteForm?menu_id=${ menuDTO.menu_id }">새 게시물 추가</a>	 
 	    </td>
 	  </tr>
 	
@@ -78,9 +83,7 @@
 	    </td>
 	    <td>${ board.writer   }</td>	   
 	    <td>${ board.regdate  }</td>	   
-	    <td>${ board.hit      }</td>
-	    <td><a href="/Board/Delete?menu_id=${menu.menu_id}">삭제</a></td>
-	    <td><a href="/Board/UpdateForm?menu_id=${menu.menu_id}">수정</a></td>	   
+	    <td>${ board.hit      }</td>	   
 	  </tr>
 	  </c:forEach>
 	  
